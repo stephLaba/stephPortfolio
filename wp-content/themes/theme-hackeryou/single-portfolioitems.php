@@ -1,37 +1,36 @@
-<?php get_header(); ?>
+  <?php get_header(); ?>
 
-<div class="main">
-  <div class="container">
 
-    <div class="content">
-      <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-
-      <h2><?php the_title(); ?></h2>
-      <!-- title tag -->
-      <p><strong>Client Name:</strong> <?php the_field("client_name"); ?></p>
-      <?php //the_content(); 
-       the_field("short_desc"); ?>
-      <!-- get the content -->
-        <?php while(has_sub_field('imgs')): ?>
-          <?php //for every img/caption combo, run this code ?>
-          <figure class="images gallery">
-            <figcaption>
-                <?php $image = get_sub_field('img'); // pre_r($image); // console log for php ?>
-                  <img src=" <?php echo $image['sizes']['square']; ?> " alt="<?php echo $image['title'];?>">
-                <?php the_sub_field('caption');  ?>
-            </figcaption>
-          </figure>
-
-        <?php endwhile; ?>
-
+  <div class="main">
+    <div class="container">
+    <section class="sectionWrapper">
   
+      <div class="content">
+        <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+          
+        <?php $heroImage = get_field('header_img'); ?>
+        <!-- <img class="" src=" <?php echo $heroImage['sizes']['custom']; ?> " alt="<?php echo $heroImage['title'];?>"> -->
 
-      <?php endwhile; // end of the loop. ?>
-      <?php the_terms($post->ID, 'technologies', ' ', ' x '); ?>
+        <h2 class="portTitleSingle"><?php the_title(); ?></h2>
+          <p class="tax"><?php the_field("tags"); ?></p>
+            <span class="copy"><?php the_content(); ?></span>
+            <?php while(has_sub_field('imgs')): ?>
+            <?php //for every img/caption combo, run this code ?>
+            <figure class="images gallery">
+              <figcaption>
+                  <?php $image = get_field('article_img'); // pre_r($image); // console log for php ?>
+                    <img class="" src=" <?php echo $image['sizes']['custom']; ?> " alt="<?php echo $image['title'];?>">
+              </figcaption>
+            </figure>
 
-    </div> <!-- /.content -->
+          <?php endwhile; ?>
+    
 
-  </div> <!-- /.container -->
-</div> <!-- /.main -->
+        <?php endwhile; // end of the loop. ?>
+    </section> 
+      </div> <!-- /.content -->
 
-<?php get_footer(); ?>
+    </div> <!-- /.container -->
+  </div> <!-- /.main -->
+
+  <?php get_footer(); ?>

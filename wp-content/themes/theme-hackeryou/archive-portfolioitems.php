@@ -10,7 +10,7 @@
       <!-- title tag -->
       <p><strong>Client Name:</strong> <?php the_field("client_name"); ?></p>
 
-        <?php the_terms($post->ID, 'technologies', ' ', ' x '); ?>
+        <p class="tax"><?php the_terms($post->ID, 'technologies', ' ', ' '); ?></p>
 
       <?php //the_content(); 
        the_field("short_desc"); ?>
@@ -25,7 +25,7 @@
           <figure class="images">
             <figcaption>
                 <?php $image = get_sub_field('img'); // pre_r($image); // console log for php ?>
-                  <img src=" <?php echo $image['sizes']['square']; ?> " alt="<?php echo $image['title'];?>">
+                  <img src=" <?php echo $image['sizes']['1500']; ?> " alt="<?php echo $image['title'];?>">
                 <?php the_sub_field('caption');  ?>
             </figcaption>
           </figure>

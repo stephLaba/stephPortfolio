@@ -8,7 +8,7 @@
 
       <h2><?php the_title(); ?></h2>
       <!-- title tag -->
-      <p><strong>Client Name:</strong> <?php the_field("client_name"); ?></p>
+      <p><strong>Project Name:</strong> <?php the_field("client_name"); ?></p>
       <?php //the_content(); 
        the_field("short_desc"); ?>
       <!-- get the content -->

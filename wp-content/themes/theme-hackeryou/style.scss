@@ -24,12 +24,21 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
    clear: both;
 }
 
-img {
-  max-width:100%;
-}
+
+
+$black: #161616;
+$grey:#7F7F7F;
+$rale: "raleway", sans-serif;
+$mont: "montserrat", sans-serif;
+
+/* =============================================================================
+                  Variables
+   ========================================================================== */
+
+
 
 /* Global Classes / Wordpress Specific */
-.aligncenter    { text-align: center; margin: 0 auto; }
+.aligncenter    { text-align: center; margin: 0 auto; display:block }
 .alignleft      { float: left; }
 .alignright     { float: right; }
 img.alignleft     { padding-right: 5px;}
@@ -38,15 +47,43 @@ img.alignright    { padding-left: 5px; }
 
 
 
+
+
 /* =============================================================================
                    Default Styling
    ========================================================================== */
 body{
-  font-family: "montserrat";
+  font-family: $rale;
+  font-weight: 400;
+  color: $grey;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+html,body{
+  height:100%
+}
+
+
+a{
+  text-decoration: none;
+  color:$black;
+  outline: 0;
+ outline:none;
+}
+
+a.CTALink{
+  padding: 10px;
+  border:4px solid transparent;
+  opacity: 1;
+}
+
+
+img {
+  max-width:100%;
 }
 
 .block{
-  // float: left;
   border:1px solid black;
   position: relative;
 }
@@ -67,6 +104,12 @@ body{
   width:50%;
 }
 
+.third{
+  width: 31%;
+  margin: 1%;
+
+}
+
 .singleCol{
   width: 20%;
 }
@@ -76,7 +119,37 @@ body{
 }
 
 .button{
-  border: solid black 4px;
+  border: solid $black 4px;
+  padding: 10px;
+  display: inline;
+  text-transform: uppercase;
+  font-size: 11px;
+ -webkit-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
+    &:hover{
+      background: $black;
+      color: white;
+    }
+
+
+}
+
+.buttonLight{
+  border: solid $grey 4px;
+  padding: 10px;
+  display: inline;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: $grey;
+  margin-top: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+    &:hover{
+      background: $grey;
+      color: $black;
+    }
+
+
 }
 
 .center{
@@ -86,15 +159,43 @@ body{
   transform:translate(-50%, -50%);
 }
 
+.container{
+  width: 100%;
+}
 
 
+.sectionWrapper{
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+}
+
+.blogSectionWrapper{
+  margin: 0 auto;
+  width: 50%;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: "montserrat";
+  color:$black;
+}
+
+h2{
+  margin: 20px 0;
+}
+
+.content{
+  color: white;
+}
 
 /* =============================================================================
-                   Sidebar
+                  General Styles
    ========================================================================== */
-
-
-
 
 
 
@@ -102,15 +203,285 @@ body{
                    Footer
    ========================================================================== */
 
-footer {
-  clear:both;
+ .hero{
+  min-height: 450px;
+  background-size:cover;
+  height:100%;
+  background-attachment: fixed;
+  background-position: center;
+ }
+
+
+ .heroBlog{
+  min-height: 300px;
+  background-size:cover;
+  height:100%;
+  background-attachment: fixed;
+ }
+
+
+
+.heroFooter{
+  min-height:250px;
+  background-size:cover;
+  height:100%;
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-image:url(img/mountain.jpg);
+ 
+}
+
+.heroSingle{
+  min-height: 250px;
+  margin-top: 200px;
+}
+
+
+.blogArchiveHeroImage{
+  min-height:250px;
+  background-image:url(img/mountain.jpg);
+  background-size:cover;
+  height:100%;
+  background-attachment: fixed;
+}
+
+
+/* =============================================================================
+                   Header Images
+   ========================================================================== */
+
+div.headerline{
+  color: white;
+  z-index: 99;
+  position: relative;
+}
+
+h2.headerHeadline{
+  margin: 0;
+  text-align: center;
+ margin-top: -60px !important;
+ -webkit-animation-name: fadeInUp;
+ -webkit-animation-duration: 3s;
+ -moz-animation-name: fadeInUp;
+ -moz-animation-duration: 3s;
+ animation-duration: 3s;
+ padding:10px 0;
+ color:$black;
+}
+
+h4.headerSubHeadline{
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: fadeInUp;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  font-family: $rale;
+  font-weight: 400;
+  color: $black;
+}
+
+a.headlineLink{
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+}
+
+
+
+.headerCenter{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  -webkit-transform:translate(-50%, -50%);
+}
+
+// animation starts
+div.headerHero{
+  overflow:hidden;
+  height: 100vh;
+  z-index: 7;
+}
+
+.cloudContainer{
+  height: 100%;
+  position: relative;
+  overflow:hidden;
+  bottom: 0;
+}
+
+.cloudsOne {
+  background:url("img/clouds005.png");
+  position:absolute;
+  left:0;
+  bottom:0;
+  z-index: 5;
+  height:90%;
+  width:230%;
+  opacity: 0.2;
+  -webkit-animation:cloud_one 150s linear infinite;
+  -moz-animation:cloud_one 150s linear infinite;
+  -o-animation:cloud_one 150s linear infinite;
+  -webkit-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  -o-transform:translate3d(0,0,0);
+}
+
+.cloudsTwo {
+  background:url("img/clouds004.png");
+  position:absolute;
+  right:0;
+  bottom:0;
+  height:50%;
+  width:200%;
+  opacity: 0.3;
+  z-index: 9;
+  -webkit-animation:cloud_two 80s linear infinite;
+  -moz-animation:cloud_two 80s linear infinite;
+  -o-animation:cloud_two 80s linear infinite;
+  -webkit-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  -o-transform:translate3d(0,0,0)
+}
+
+
+@-webkit-keyframes cloud_one {
+  0% {
+    left:0
+  }
+
+  100% {
+    left:-200%
+  }
+}
+
+@-webkit-keyframes cloud_two {
+  0% {
+    right:0
+  }
+
+  100% {
+    right:-200%
+  }
+}
+
+
+
+
+@-moz-keyframes cloud_one {
+  0% {
+    left:0
+  }
+
+  100% {
+    left:-200%
+  }
+}
+
+@-moz-keyframes cloud_two {
+  0% {
+    right:0
+  }
+
+  100% {
+    right:-200%
+  }
 }
 
 
 /* =============================================================================
                    Navigation
    ========================================================================== */
-  
+
+
+  a.navTitleLink{
+    position: relative;
+      bottom: -40px;
+      border: 4px solid black;
+      margin: 30px;
+      padding: 10px;
+  }
+
+  .nav ul{
+    float: left;
+  }
+
+   .menu li{
+     list-style: none;
+     display: inline-block;
+     float: right;
+    padding:15px 20px 0 20px;
+   }
+
+   .menu a{
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 3px;
+    border-bottom: 1px solid transparent;
+   -webkit-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+      &:hover{
+        // color: $grey;
+        border-bottom: 1px solid $black;
+      }
+   }
+
+   #menu-menu-2{
+    float: right;
+    margin-top: 45px;
+   }
+
+   #menu-menu-2 li{
+    float: left;
+    padding: 15px 20px 0 20px;
+   }
+
+
+
+   nav{
+    background: rgba(0,0,0,0.0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    z-index: 20;
+    padding-bottom: 10px;
+
+   }
+
+   nav h1{
+    display: inline-block;
+    margin: 0;
+    font-size: 15px;
+    padding-bottom: 10px;
+   }
+
+   .scrollin{
+    padding: 5px;
+    padding-bottom: 12px;
+    background: black;
+    color:white;
+
+
+   }
+
+   .scrollin a{
+    color: white;
+    // border-bottom: none !important;
+   }
+
+   i.fa.fa-bars{
+      display: none;
+      color: $black;
+      float: right;
+      padding-right: 20px;
+     }
+
 
 
 /* =============================================================================
@@ -241,15 +612,134 @@ p.form-allowed-tags, .nocomments { display:none; }
 .comment-meta a:active, .comment-meta a:hover, .reply a:hover, a.comment-edit-link:hover { color:#ff4b33; }
 #respond p, #comments-list ul #respond { margin:0; }
 
-
+#respond .form-submit input {
+ background-color: white;
+ border:4px solid $black;
+ margin-top: 20px;
+ padding: 10px;
+}
 
 /* =============================================================================
                    Comment Styling
+   ===========================================================
+   =============== */
+section.about{
+  background: $black;
+  padding: 100px 50px;
+
+}
+
+.aboutWrapper{
+  width: 60%;
+}
+
+
+.aboutContent.content p{
+  color: $grey;
+}
+
+.aboutContent.buttonLight{
+  margin-top: 20px;
+}
+
+.aboutH3{
+  clear:both;
+  color:white;
+  padding-left: 20px;
+   font-weight: 100;
+}
+
+
+
+div.socialMedia{
+  margin: 0 auto;
+  width: 80%;
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  background-color: transparent;
+
+}
+
+.socialMedia a{
+  color: white;
+  color: black;
+
+}
+
+ul.socialMedia{
+  color:white;
+  padding: 0 20px;
+  text-decoration: none;
+  position: absolute;
+  z-index: 9999999;
+}
+
+.socialMedia li{
+  float:left;
+  list-style: none;
+  width: 33%;
+  margin: 0;
+  height: 250px;
+  line-height: 250px;
+  -webkit-transition: all 1s ease; /* Safari */
+   transition: all 1s ease;
+  &:hover{
+     opacity: 0.5;
+     -webkit-opacity:0.5;
+   }
+}
+
+.socialMediaList{
+  margin: 0;
+  opacity: 0;
+}
+
+.socialMediaList.visible{
+  opacity: 1;
+  -webkit-animation-name: fadeInDown;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: fadeInDown;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  padding: 0;
+}
+
+.fa {
+  color: $black;
+}
+
+/* =============================================================================
+                  about
    ========================================================================== */
 
+section.portfolio{
+  padding: 100px 50px;
+} 
+
+.featuredPost{
+  position: relative;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+.featuredPost a{
+  padding-right: 10px;
+}
+
+.featuredPost span{
+    color: $black;
+    word-spacing: 10px;
+}
+
+.featuredPost a:first-child{
+  padding-left: 0;
+}
 
 .galleryDiv{
-  background-color: grey;
+  margin-bottom: 200px;
+  margin-top: 100px;
   .featuredPost {
     float:left;
   }
@@ -260,6 +750,7 @@ p.form-allowed-tags, .nocomments { display:none; }
     .featuredPost  {
       float: right;
       text-align: left;
+      padding-left: 60px;
     }
     .imgGalleyDiv {
       float: left;
@@ -267,19 +758,500 @@ p.form-allowed-tags, .nocomments { display:none; }
   }
 } 
 
-.imgGalleryDiv img:nth-of-type(even) {
-    float: right;
+
+.galleryDiv:nth-child(odd) img {
+  float:right;
 }
 
-// .imgGalleryDiv:nth-of-type(odd) img {
-//     float: right;
-// }
-git remote add origin https://github.com/stephLaba/stephPortfolio.git
-https://github.com/stephLaba/stephPortfolio
 
+// animation start
+
+.galleryImage:nth-child(odd){
+  opacity: 1;
+}
+
+  .featuredPost{
+    opacity: 0;
+  }
+
+.featuredPost.visible{
+  opacity: 1;
+  -webkit-opacity:1;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-duration: 2s;
+  -moz-animation-name: fadeInUp;
+  -moz-animation-duration: 3s;
+  animation-duration: 2s;
+}
+
+
+  a.excerptLink{
+   display: inline-block;
+   background: red;
+  }
+
+  a.portButton{
+    display: inline;
+    position: relative;
+    top: 20px;
+      &:hover{
+        color: white;
+      }
+  }
+
+h2.portH2{
+  margin: 0;
+  padding: 0;
+}
+
+.portTitleSingle{
+  margin-top: 300px;
+}
+
+    .divider{
+      height: 4px;
+      float:left;
+      width: 0;
+      -webkit-transition: all 1s; 
+      transition: all 2s;
+      background: black;
+    }
+
+    .divider.visible{
+      width: 140px;
+
+    }
 
 
 
 /* =============================================================================
                    Gallery
    ========================================================================== */
+
+
+  div.blog{
+    margin-bottom: 100px;
+    margin-top: 0;
+  }
+
+  section.blog{
+    padding: 100px 50px;
+  }
+
+   .blogDiv{
+    float: left;
+    border:1px solid $black;
+    opacity: 0;
+    -webkit-opacity:0;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    -webkit-box-shadow: 0;
+    -moz-box-shadow:    0;
+    box-shadow:         0;
+   }
+
+
+
+  .blogImg img{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-size:cover;
+  }
+
+  .blogContent{
+    padding: 20px;
+  }
+
+  .blogTitle{
+    padding: 20px 0;
+  }
+
+  div.content{
+    padding: 0 20px 30px 20px;
+
+  }
+
+  p.tax, .content{
+    color: white;
+    padding-top: 20px;
+  }
+
+  a.button.buttonLive{
+    padding: 10px;
+  }
+
+  .content p {
+    margin-bottom: 30px;
+    color: $grey;
+  
+  }
+
+  span.copy{
+    color: $grey;
+  }
+
+  // animation start
+
+  .blogDiv.visible{
+    opacity: 1;
+    -webkit-opacity:1;
+    -webkit-animation-name: fadeInUp;
+    -webkit-animation-duration: 2s;
+    -moz-animation-name: fadeInUp;
+    -moz-animation-duration: 2s;
+    animation-duration: 2s;
+      &:hover{
+        -webkit-box-shadow: 10px 10px 0px 0px $black;
+        -moz-box-shadow:    10px 10px 0px 0px $black;
+        box-shadow:         10px 10px 0px 0px $black;
+      }
+  }
+
+  .blogDivider{
+    height: 4px;
+    float:left;
+    width: 0;
+    opacity: 0;
+    -webkit-transition: all 1s; 
+    transition: all 2s;
+    background: black;
+    z-index: 8;
+  }
+
+  .blogDivider.visible{
+    width: 64px;
+    opacity: 1;
+  }
+
+   .blogH2{
+    margin: 0;
+   }
+
+   // single style page start
+
+  .headerBlogWrapper{
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+    padding-top: 100px;
+  }
+
+  .blogArchiveSectionWrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  h1.entry-title{
+    // padding:100px 0;
+  }
+  
+  .entry-utility{
+    padding-top: 50px;
+    color: $black;
+  }
+  
+  .entry-title{
+    color: $black;
+  }
+
+  section.entryContent{
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .entry-content p{
+    margin: 0;
+    color: $grey;
+  }
+
+
+  .meta-prep.meta-prep-author{
+    color: $grey;
+  }
+
+  .meta-sep{
+    color: 
+  }
+
+  .blogArchivesectionWrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  h2.entry-title{
+    padding-top: 100px;
+    color: $black;
+  }
+
+  .singleMarginTop{
+    margin-top: 400px;
+  }
+
+  #nav-below{
+    font-family: $mont;
+    text-transform: uppercase;
+    font-weight: 600;
+      &:hover{
+        color: $grey;
+      }
+  }
+
+  .entry-date{
+    font-family: $mont;
+  }
+
+  .url.fn.n{
+    font-family: $mont;
+  }
+
+
+/* =============================================================================
+                   Blog
+   ========================================================================== */
+.contact{
+  width: 100%;
+  background: $black;
+  padding: 100px 50px;
+}
+
+.contactContent{
+  text-align: center;
+}
+
+.contactContent a{
+  color: $grey;
+  border:4px solid $grey;
+  letter-spacing: 4px;
+  padding: 10px;
+  font-size: 12px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+    &:hover{
+      background: $grey;
+      color: $black;
+    }
+}
+
+.contactContent p{
+  color: $grey;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.footerContainer{
+  text-align: center;
+  padding: 20px 0;
+  letter-spacing: 3px;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+footer {
+  clear:both;
+
+}
+
+   /* =============================================================================
+                    Contact
+      ========================================================================== */
+
+      .footerContainer{
+        text-align: center;
+        background-color: $black;
+      }
+
+      .CTALink{
+        opacity: 0;
+
+      }
+
+     .CTALink.visible{
+        opacity: 1;
+        -webkit-animation-name: fadeIn;
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+      }
+
+     /* =============================================================================
+                 footer 
+      ========================================================================== */
+
+      .container.blogArchives{
+        background-image:url(i/mountain1.jpg);
+      }
+     
+
+
+      /* =============================================================================
+                  mq
+       ========================================================================== */
+
+       @media screen and (max-width: 815px){
+
+  
+
+        .half{
+          width:100%;
+        }
+
+        .third{
+          width: 100%;
+          margin: 0 auto;
+          margin-bottom: 50px;
+        }
+
+        // general styles end
+
+        nav{
+          // height: 60px;
+          color: white;
+        }
+        
+        .menu li {
+          list-style: none;
+          text-align: center;
+          display: block;
+          float: none;
+          margin: 0;
+          display: none;
+          color: white;
+          background-color: black;
+          padding-bottom: 20px;
+    
+        }
+
+        #menu-menu-2 li {
+          list-style: none;
+          text-align: center;
+          display: block;
+          float: none;
+          margin: 0;
+          display: none;
+          color: white;
+          background-color: black;
+          padding-bottom: 20px;
+        
+        }
+
+        .menu a{
+          color: white;
+          background-color: black;
+        }
+
+        ul.menu {
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
+        ul.menu > li {
+            transform: rotate(-180deg);
+            -webkit-transform: rotate(-180deg);
+        }
+
+         #menu-menu-2 {
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
+        #menu-menu-2 > li {
+            transform: rotate(-180deg);
+            -webkit-transform: rotate(-180deg);
+        }
+
+        #menu-menu-1{
+          padding-left: 0;
+        }
+
+        #menu-menu-2{
+          padding-left: 0;
+        }
+      
+        a.navTitleLink{
+          display: none;
+        } 
+
+        .navicon{
+          padding-left:20px;
+          padding-top: 20px;
+          display: block;
+          font-size: 20px;
+        }
+
+        a.navicon{
+          outline: none;
+        }
+
+        .scrollin a{
+          color: white;
+        }
+
+        i.fa.fa-bars{
+          display: block;
+          // color: $black;
+
+        }
+
+       i.fa.fa-barsLite{
+          color: white;
+        }
+
+
+        // nav styles end
+
+
+        .galleryDiv {
+          margin-bottom: 100px;
+        } 
+
+        .galleryDiv:nth-child(odd) .featuredPost {
+          padding-left: 0px;
+        }
+
+        .featuredPost {
+          padding-right: 0px;
+          padding-left: 0px;
+        }
+
+        .galleryDiv img{
+          margin-top:50px;
+        }
+
+        // gallery styles end
+        
+        h1.entry-title{
+          padding: 0;
+          margin: 0;
+        }
+
+
+        section.blog, section.portfolio, section.about{
+          padding:100px 0;
+          margin: 0;
+        }
+
+        .aboutWrapper{
+          width: 80%;
+        }
+
+        .featuredPost.visible{
+          opacity: 1;
+          -webkit-animation-name: fadeIn;
+          -webkit-animation-duration: 2s;
+          -moz-animation-name: fadeIn;
+          -moz-animation-duration: 2s;
+          animation-duration: 2s;
+        }
+
+        .blogDiv.visible{
+          opacity: 1;
+          -webkit-animation-name: fadeIn;
+          -webkit-animation-duration: 2s;
+          -moz-animation-name: fadeIn;
+          -moz-animation-duration: 2s;
+          animation-duration: 2s;
+        }
+
+      
+
+       }

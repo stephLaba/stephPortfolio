@@ -1,8 +1,11 @@
 <?php get_header(); ?>
 
+
+
 <div class="main">
-  <div class="container">
+  <div class="container blogArchives">
     <div class="content">
+
 
       <?php if ( have_posts() ) the_post(); ?>
 

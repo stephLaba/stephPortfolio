@@ -13,6 +13,10 @@ function theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size(120, 90, true);
 	add_image_size('square', 150, 150, true);
+	add_image_size('custom');
+
+
+
 
 
 	// Add default posts and comments RSS feed links to head
@@ -124,7 +128,8 @@ add_filter( 'excerpt_length', 'hackeryou_excerpt_length' );
  * Returns a "Continue Reading" link for excerpts
  */
 function hackeryou_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">Continue reading <span class="meta-nav">&rarr;</span></a>';
+	return ' ';
+	// return ' <a class="excerptLink" href="'. get_permalink() . '"> view project <span class="meta-nav"></span></a>';
 }
 
 /**
